@@ -382,7 +382,7 @@ var commands = {
 	},
 	"rr": {
 		"aliases": [],
-		"roles": Role.ADMIN,
+		"roles": Role.PLAYER,
 		"desc": `
 	Admin command.
     Esse comando reinicia o jogo.`,
@@ -751,7 +751,7 @@ function getCommand(commandStr) {
 
 function getUniform(uniformStr) {
 	if (uniforms.hasOwnProperty(uniformStr)) return uniformStr;
-	for (const [key, value] of Object.entries(uniformStr)) {
+	for (const [key, value] of Object.entries(uniforms)) {
 		for (let i = 0; i < value.aliases.length; i++) {
 			if (value.aliases[i] === uniformStr) return key;
 		}
@@ -776,9 +776,7 @@ function calculateStadiumVariables() {
 
 /* PLAYER FUNCTIONS */
 
-function getRole(player) {
-	return (authWhiteList.findIndex(auth => auth === playerAuth[player.id]) !== -1) * 1 + player.admin * 1;
-}
+
 
 /* COMMAND FUNCTIONS */
 
@@ -796,20 +794,13 @@ function helpCommand(player, message) {
 			if (value.desc && value.roles === Role.PLAYER) commandString += ` !${key},`;
 		}
 		commandString = commandString.substring(0, commandString.length - 1) + ".";
-		if (getRole(player) >= Role.ADMIN) {
-			commandString += `\n        Admin commands :`;
-			for (const [key, value] of Object.entries(commands)) {
-				if (value.desc && value.roles === Role.ADMIN) commandString += ` !${key},`;
-			}
+		commandString += `\n        Admin commands :`;
+		for (const [key, value] of Object.entries(commands)) {
+			if (value.desc && value.roles === Role.ADMIN) commandString += ` !${key},`;
 		}
+
 		if (commandString.slice(commandString.length - 1) === ":") commandString += ` None,`;
 		commandString = commandString.substring(0, commandString.length - 1) + ".";
-		if (getRole(player) >= Role.MASTER) {
-			commandString += `\n        Master commands :`;
-			for (const [key, value] of Object.entries(commands)) {
-				if (value.desc && value.roles === Role.MASTER) commandString += ` !${key},`;
-			}
-		}
 		if (commandString.slice(commandString.length - 1) === ":") commandString += ` None,`;
 		commandString = commandString.substring(0, commandString.length - 1) + ".";
 		commandString += "\n\n To get information on a specific command, type '\'!help <command name>\'.";
@@ -844,7 +835,7 @@ function uniformCommand(player, message) {
 	}
 	else if (msgArray.length >= 1) {
 		var uniformName = getUniform(msgArray[0].toLowerCase());
-		if (uniformName !== false) {
+		if (uniformName !== false && uniforms[uniformName].name !== false) {
             room.setTeamColors(player.team, uniforms[uniformName].angle, uniforms[uniformName].textcolor,[uniforms[uniformName].color1, uniforms[uniformName].color2, uniforms[uniformName].color3]);
             room.sendAnnouncement(`[PV] O uniforme do \'${uniforms[uniformName].name}\' foi colocado em seu time.`, player.id, statsColor, "bold", Notification.CHAT);
 			if (player.team == 1) {
@@ -854,8 +845,9 @@ function uniformCommand(player, message) {
 				blueColor = uniforms[uniformName].color1;
 				teamnameblue = uniforms[uniformName].name;
 			}
-        } 
-		else room.sendAnnouncement(`[PV] Esse uniforme não existe, digite \'!uniforme\' para ver todos os disponíveis`, player.id, statsColor, "bold", Notification.CHAT);
+        } else {
+		room.sendAnnouncement(`[PV] Esse uniforme não existe, digite \'!uniforme\' para ver todos os disponíveis`, player.id, statsColor, "bold", Notification.CHAT);
+		}
 	}
 }
 
@@ -1047,7 +1039,7 @@ room.onPlayerChat = function (player, message) {
 	let msgArray = message.split(/ +/);
 	if (msgArray[0][0] === '!') {
 		let command = getCommand(msgArray[0].slice(1).toLowerCase());
-		if (command !== false && commands[command].roles <= getRole(player)) commands[command].function(player, message);
+		if (command !== false) commands[command].function(player, message);
 		return false;
 	}
 }
