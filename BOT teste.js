@@ -416,7 +416,7 @@ var uniforms = {
 	},
 	"arg2": {
 		"aliases": [],
-		"name": 'Argentina Visitante',
+		"name": 'Argentina',
 		"type": Uniform.COUNTRY,
 		"angle": 0,
 		"textcolor": 0x9F8334,
@@ -436,7 +436,7 @@ var uniforms = {
 	},
 	"bra2": {
 		"aliases": [],
-		"name": 'Brasil Visitante',
+		"name": 'Brasil',
 		"type": Uniform.COUNTRY,
 		"angle": 0,
 		"textcolor": 0xDBB71B,
@@ -488,7 +488,7 @@ var uniforms = {
     },
 	"bah2": {
         "aliases": [],
-		"name": 'Bahia Visitante',
+		"name": 'Bahia',
         "type": Uniform.CLUBLA,
         "angle": 270,
         "textcolor": 0xD10125,
@@ -508,7 +508,7 @@ var uniforms = {
     },
 	"vit2": {
         "aliases": [],
-		"name": 'Vitória Visitante',
+		"name": 'Vitória',
         "type": Uniform.CLUBLA,
         "angle": 90,
         "textcolor": 0x000000,
@@ -528,7 +528,7 @@ var uniforms = {
     },
 	"pal2": {
         "aliases": [],
-		"name": 'Palmeiras Visitante',
+		"name": 'Palmeiras',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0x004738,
@@ -548,7 +548,7 @@ var uniforms = {
     },
 	"cor2": {
         "aliases": [],
-		"name": 'Corinthians Visitante',
+		"name": 'Corinthians',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0xFFFFFF,
@@ -568,7 +568,7 @@ var uniforms = {
     },
 	"san2": {
         "aliases": [],
-		"name": 'Santos Visitante',
+		"name": 'Santos',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0xB69754,
@@ -588,7 +588,7 @@ var uniforms = {
     },
 	"sao2": {
         "aliases": [],
-		"name": 'São Paulo Visitante',
+		"name": 'São Paulo',
         "type": Uniform.CLUBLA,
         "angle": 90,
         "textcolor": 0xFFFFFF,
@@ -608,7 +608,7 @@ var uniforms = {
     },
 	"fla2": {
         "aliases": [],
-		"name": 'Flamengo Visitante',
+		"name": 'Flamengo',
         "type": Uniform.CLUBLA,
         "angle": 90,
         "textcolor": 0xBA1719,
@@ -628,7 +628,7 @@ var uniforms = {
     },
 	"flu2": {
         "aliases": [],
-		"name": 'Fluminense Visitante',
+		"name": 'Fluminense',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0x920F2E,
@@ -648,7 +648,7 @@ var uniforms = {
     },
 	"vas2": {
         "aliases": [],
-		"name": 'Vasco Visitante',
+		"name": 'Vasco',
         "type": Uniform.CLUBLA,
         "angle": 135,
         "textcolor": 0xFF0000,
@@ -668,7 +668,7 @@ var uniforms = {
     },
 	"bot2": {
         "aliases": [],
-		"name": 'Botafogo Visitante',
+		"name": 'Botafogo',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0xFFFFFF,
@@ -688,7 +688,7 @@ var uniforms = {
     },
 	"gre2": {
         "aliases": [],
-		"name": 'Gremio Visitante',
+		"name": 'Gremio',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0x4A87B7,
@@ -708,7 +708,7 @@ var uniforms = {
     },
 	"int2": {
         "aliases": [],
-		"name": 'Internacional Visitante',
+		"name": 'Internacional',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0xE30222,
@@ -728,7 +728,7 @@ var uniforms = {
     },
 	"cru2": {
         "aliases": [],
-		"name": 'Cruzeiro Visitante',
+		"name": 'Cruzeiro',
         "type": Uniform.CLUBLA,
         "angle": 0,
         "textcolor": 0x101B51,
@@ -748,7 +748,7 @@ var uniforms = {
     },
 	"atl2": {
         "aliases": [],
-		"name": 'Atlético-MG Visitante',
+		"name": 'Atlético-MG',
         "type": Uniform.CLUBLA,
         "angle": 90,
         "textcolor": 0xC91926,
@@ -768,7 +768,7 @@ var uniforms = {
     },
 	"spo2": {
         "aliases": [],
-		"name": 'Sport Visitante',
+		"name": 'Sport',
         "type": Uniform.CLUBLA,
         "angle": 90,
         "textcolor": 0xB6A043,
@@ -788,7 +788,7 @@ var uniforms = {
     },
 	"riv2": {
         "aliases": [],
-		"name": 'River Plate Visitante',
+		"name": 'River Plate',
         "type": Uniform.CLUBLA,
         "angle": 45,
         "textcolor": 0xFFFFFF,
@@ -808,7 +808,7 @@ var uniforms = {
     },
 	"boc2": {
         "aliases": [],
-		"name": 'Boca Juniors Visitante',
+		"name": 'Boca Juniors',
         "type": Uniform.CLUBLA,
         "angle": 90,
         "textcolor": 0xFFFFFF,
@@ -817,7 +817,7 @@ var uniforms = {
         "color3": 0xE0B60D,
     },
 /* CLUBES EU */
-    "chelsea": {
+    "che": {
         "aliases": [],
 		"name": 'Chelsea',
         "type": Uniform.CLUBEU,
@@ -827,7 +827,7 @@ var uniforms = {
         "color2": 0x0000CD,
         "color3": 0x0000CD,
     },
-    "real": {
+    "rea": {
         "aliases": [],
 		"name": 'Real Madrid',
         "type": Uniform.CLUBEU,
@@ -837,7 +837,7 @@ var uniforms = {
         "color2": 0xFFFAFA,
         "color3": 0xFFFAFA,
     },
-    "juventus": {
+    "juv": {
         "aliases": [],
 		"name": 'Juventus',
         "type": Uniform.CLUBEU,
@@ -847,7 +847,7 @@ var uniforms = {
         "color2": 0xFFFFFF,
         "color3": 0x000000,
     },
-    "bayern": {
+    "bay": {
         "aliases": [],
 		"name": 'Bayern de Munique',
         "type": Uniform.CLUBEU,
@@ -857,11 +857,11 @@ var uniforms = {
         "color2": 0xF20000,
         "color3": 0xFF0000,
     },
-    "barcelona": {
+    "bar": {
         "aliases": [],
 		"name": 'Barcelona',
         "type": Uniform.CLUBEU,
-        "angle": 90,
+        "angle": 0,
         "textcolor": 0xFFD700,
         "color1": 0x00008B,
         "color2": 0x8B0000,
