@@ -837,6 +837,8 @@ var players;
 var teamR;
 var teamB;
 var teamS;
+var Rposs = 0;
+var Bposs = 0;
 
 /* AUTH */
 
@@ -846,7 +848,7 @@ var authWhiteList = [];
 /* COMMANDS */
 
 var commands = {
-	"help": {
+	"ajuda": {
 		"aliases": [],
 		"roles": Role.PLAYER,
 		"desc": `
@@ -897,7 +899,6 @@ var uniforms = {
     
 /* SELEÇÕES */
 	"ale": {
-    "aliases": [],
 	"name": 'Alemanha',
     "type": Uniform.COUNTRY,
     "angle": 90,
@@ -907,7 +908,6 @@ var uniforms = {
     "color3": 0xFFFFFF,
 	},
 	"arg": {
-    "aliases": [],
 	"name": 'Argentina',
     "type": Uniform.COUNTRY,
     "angle": 90,
@@ -917,7 +917,6 @@ var uniforms = {
     "color3": 0x75AADB,
 	},
 	"arg2": {
-		"aliases": [],
 		"name": 'Argentina',
 		"type": Uniform.COUNTRY,
 		"angle": 0,
@@ -927,7 +926,6 @@ var uniforms = {
 		"color3": 0x103A73,
 		},
 	"bra": {
-    "aliases": [],
 	"name": 'Brasil',
     "type": Uniform.COUNTRY,
     "angle": 360,
@@ -937,7 +935,6 @@ var uniforms = {
     "color3": 0xDBB71B,
 	},
 	"bra2": {
-		"aliases": [],
 		"name": 'Brasil',
 		"type": Uniform.COUNTRY,
 		"angle": 0,
@@ -947,7 +944,6 @@ var uniforms = {
 		"color3": 0x1C56B4,
 		},
 	"esp": {
-    "aliases": [],
 	"name": 'Espanha',
     "type": Uniform.COUNTRY,
     "angle": 90,
@@ -957,7 +953,6 @@ var uniforms = {
     "color3": 0xFF0000,
 	},
 	"hol": {
-    "aliases": [],
 	"name": 'Holanda',
     "type": Uniform.COUNTRY,
     "angle": 0,
@@ -967,7 +962,6 @@ var uniforms = {
     "color3": 0xFF7F00,
 	},
 	"por": {
-    "aliases": [],
 	"name": 'Portugal',
     "type": Uniform.COUNTRY,
     "angle": 0,
@@ -979,7 +973,6 @@ var uniforms = {
 
 /* CLUBES LA */
     "bah": {
-        "aliases": [],
 		"name": 'Bahia',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -989,7 +982,6 @@ var uniforms = {
         "color3": 0x1C3E94,
     },
 	"bah2": {
-        "aliases": [],
 		"name": 'Bahia',
         "type": Uniform.CLUBLA,
         "angle": 270,
@@ -999,7 +991,6 @@ var uniforms = {
         "color3": 0x1C3E94,
     },
     "vit": {
-        "aliases": [],
 		"name": 'Vitória',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1009,7 +1000,6 @@ var uniforms = {
         "color3": 0x000000,
     },
 	"vit2": {
-        "aliases": [],
 		"name": 'Vitória',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1019,7 +1009,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
     "pal": {
-        "aliases": [],
 		"name": 'Palmeiras',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1029,7 +1018,6 @@ var uniforms = {
         "color3": 0x224A40,
     },
 	"pal2": {
-        "aliases": [],
 		"name": 'Palmeiras',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1039,7 +1027,6 @@ var uniforms = {
         "color3": 0xF4F6FA,
     },
     "cor": {
-        "aliases": [],
 		"name": 'Corinthians',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1049,7 +1036,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
 	"cor2": {
-        "aliases": [],
 		"name": 'Corinthians',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1059,7 +1045,6 @@ var uniforms = {
         "color3": 0x000000,
     },
     "san": {
-        "aliases": [],
 		"name": 'Santos',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1069,7 +1054,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
 	"san2": {
-        "aliases": [],
 		"name": 'Santos',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1079,7 +1063,6 @@ var uniforms = {
         "color3": 0x000000,
     },
     "sao": {
-        "aliases": [],
 		"name": 'São Paulo',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1089,7 +1072,6 @@ var uniforms = {
         "color3": 0x000000,
     },
 	"sao2": {
-        "aliases": [],
 		"name": 'São Paulo',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1099,7 +1081,6 @@ var uniforms = {
         "color3": 0xCE393B,
     },
     "fla": {
-        "aliases": [],
 		"name": 'Flamengo',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1109,7 +1090,6 @@ var uniforms = {
         "color3": 0xBA1719,
     },
 	"fla2": {
-        "aliases": [],
 		"name": 'Flamengo',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1119,7 +1099,6 @@ var uniforms = {
         "color3": 0x1A1613,
     },
     "flu": {
-        "aliases": [],
 		"name": 'Fluminense',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1129,7 +1108,6 @@ var uniforms = {
         "color3": 0x005C38,
     },
 	"flu2": {
-        "aliases": [],
 		"name": 'Fluminense',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1139,7 +1117,6 @@ var uniforms = {
         "color3": 0xE4DADB,
     },
     "vas": {
-        "aliases": [],
 		"name": 'Vasco',
         "type": Uniform.CLUBLA,
         "angle": 135,
@@ -1149,7 +1126,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
 	"vas2": {
-        "aliases": [],
 		"name": 'Vasco',
         "type": Uniform.CLUBLA,
         "angle": 135,
@@ -1159,7 +1135,6 @@ var uniforms = {
         "color3": 0x000000,
     },
     "bot": {
-        "aliases": [],
 		"name": 'Botafogo',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1169,7 +1144,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
 	"bot2": {
-        "aliases": [],
 		"name": 'Botafogo',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1179,7 +1153,6 @@ var uniforms = {
         "color3": 0x000000,
     },
     "gre": {
-        "aliases": [],
 		"name": 'Gremio',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1189,7 +1162,6 @@ var uniforms = {
         "color3": 0x75ACFF,
     },
 	"gre2": {
-        "aliases": [],
 		"name": 'Gremio',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1199,7 +1171,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
     "int": {
-        "aliases": [],
 		"name": 'Internacional',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1209,7 +1180,6 @@ var uniforms = {
         "color3": 0xD3051F,
     },
 	"int2": {
-        "aliases": [],
 		"name": 'Internacional',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1219,7 +1189,6 @@ var uniforms = {
         "color3": 0xEBE5E0,
     },
 	"cru": {
-        "aliases": [],
 		"name": 'Cruzeiro',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1229,7 +1198,6 @@ var uniforms = {
         "color3": 0x023286,
     },
 	"cru2": {
-        "aliases": [],
 		"name": 'Cruzeiro',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1239,7 +1207,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
 	"atl": {
-        "aliases": [],
 		"name": 'Atlético-MG',
         "type": Uniform.CLUBLA,
         "angle": 0,
@@ -1249,7 +1216,6 @@ var uniforms = {
         "color3": 0x000000,
     },
 	"atl2": {
-        "aliases": [],
 		"name": 'Atlético-MG',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1259,7 +1225,6 @@ var uniforms = {
         "color3": 0xFFFFFF,
     },
 	"spo": {
-        "aliases": [],
 		"name": 'Sport',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1269,7 +1234,6 @@ var uniforms = {
         "color3": 0xBE2B2D,
     },
 	"spo2": {
-        "aliases": [],
 		"name": 'Sport',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1279,7 +1243,6 @@ var uniforms = {
         "color3": 0xE5E0E2,
     },
     "riv": {
-        "aliases": [],
 		"name": 'River Plate',
         "type": Uniform.CLUBLA,
         "angle": 45,
@@ -1289,7 +1252,6 @@ var uniforms = {
         "color3": 0xFFFAFA,
     },
 	"riv2": {
-        "aliases": [],
 		"name": 'River Plate',
         "type": Uniform.CLUBLA,
         "angle": 45,
@@ -1299,7 +1261,6 @@ var uniforms = {
         "color3": 0xAF1D27,
     },
     "boc": {
-        "aliases": [],
 		"name": 'Boca Juniors',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1309,7 +1270,6 @@ var uniforms = {
         "color3": 0x05009C,
     },
 	"boc2": {
-        "aliases": [],
 		"name": 'Boca Juniors',
         "type": Uniform.CLUBLA,
         "angle": 90,
@@ -1320,7 +1280,6 @@ var uniforms = {
     },
 /* CLUBES EU */
     "che": {
-        "aliases": [],
 		"name": 'Chelsea',
         "type": Uniform.CLUBEU,
         "angle": 90,
@@ -1330,7 +1289,6 @@ var uniforms = {
         "color3": 0x0000CD,
     },
     "rea": {
-        "aliases": [],
 		"name": 'Real Madrid',
         "type": Uniform.CLUBEU,
         "angle": 0,
@@ -1340,7 +1298,6 @@ var uniforms = {
         "color3": 0xFFFAFA,
     },
     "juv": {
-        "aliases": [],
 		"name": 'Juventus',
         "type": Uniform.CLUBEU,
         "angle": 180,
@@ -1350,7 +1307,6 @@ var uniforms = {
         "color3": 0x000000,
     },
     "bay": {
-        "aliases": [],
 		"name": 'Bayern de Munique',
         "type": Uniform.CLUBEU,
         "angle": 30,
@@ -1360,7 +1316,6 @@ var uniforms = {
         "color3": 0xFF0000,
     },
     "bar": {
-        "aliases": [],
 		"name": 'Barcelona',
         "type": Uniform.CLUBEU,
         "angle": 0,
@@ -1370,7 +1325,6 @@ var uniforms = {
         "color3": 0x00008B,
     },
     "psg": {
-        "aliases": [],
 		"name": 'Paris Sant-Germain',
         "type": Uniform.CLUBEU,
         "angle": 180,
@@ -1643,14 +1597,19 @@ function instantRestart() {
 
 function endGame(winner) { // no stopGame function in it
 	const scores = room.getScores();
+	Rposs = Rposs/(Rposs+Bposs);
+	Bposs = 1 - Rposs;
 	if (winner === Team.RED) {
 		room.sendAnnouncement(`${teamnamered} Venceu ! ${scores.red} - ${scores.blue} !`, null, redColor, "bold", Notification.CHAT);
+		room.sendAnnouncement(`⭐ Possession : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
 	}
 	else if (winner === Team.BLUE) {
 		room.sendAnnouncement(`${teamnameblue} Venceu ! ${scores.blue} - ${scores.red} !`, null, blueColor, "bold", Notification.CHAT);
+		room.sendAnnouncement(`⭐ Possession : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
 	}
 	else {
 		room.sendAnnouncement("💤 Empate !", null, announcementColor, "bold", Notification.CHAT);
+		room.sendAnnouncement(`⭐ Possession : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
 	}
 }
 
@@ -1704,6 +1663,7 @@ function getStats() { // gives the speed of the ball
 	point[1] = point[0];
 	point[0] = ballPosition;
 	ballSpeed = pointDistance(point[0], point[1]) * speedCoefficient;
+	lastTeamTouched == Team.RED ? Rposs++ : Bposs++;
 }
 
 /* EVENTS */
@@ -1711,7 +1671,7 @@ function getStats() { // gives the speed of the ball
 /* PLAYER MOVEMENT */
 
 room.onPlayerJoin = function (player) {
-	room.sendAnnouncement(`[PV] 👋 Bem-vindo ${player.name} !`, player.id, welcomeColor, "bold", Notification.CHAT);
+	room.sendAnnouncement(`[PV] 👋 Bem-vindo ${player.name} ! para ver os comando do servidor digite !ajuda`, player.id, welcomeColor, "bold", Notification.CHAT);
 	updateTeams();
 	updateAdmins();
 	playerAuth[player.id] = player.auth;
@@ -1766,6 +1726,8 @@ room.onGameStart = function (byPlayer) {
 	lastPlayersTouched = [null, null];
 	checkDrawWarning = false;
 	calculateStadiumVariables();
+	Rposs = 0;
+	Bposs = 0;
 }
 
 room.onGameStop = function (byPlayer) {
