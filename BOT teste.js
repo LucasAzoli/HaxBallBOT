@@ -851,9 +851,7 @@ var commands = {
 	"ajuda": {
 		"aliases": [],
 		"roles": Role.PLAYER,
-		"desc": `
-	Esse comando mostra todos os outros comandos, e pode também explicar a função de cada comando.
-    Exemple: \'!help bb\' mostrará a função do comando \'bb\'.`,
+		"desc": `Esse comando mostra todos os outros comandos, e pode também explicar a função de cada comando. \nExemple: \'!help bb\' mostrará a função do comando \'bb\'.`,
 		"function": helpCommand,
 	},
 	"claim": {
@@ -865,31 +863,25 @@ var commands = {
 	"bb": {
 		"aliases": ["bye", "gn", "cya"],
 		"roles": Role.PLAYER,
-		"desc": `
-	Esse comando te desconecta rapidamente.`,
+		"desc": `Esse comando te desconecta rapidamente.`,
 		"function": leaveCommand,
 	},
 	"uniforme": {
 		"aliases": [],
 		"roles": Role.PLAYER,
-		"desc": `
-	Esse comando mostra os uniformes disponíveis para colocar no seu time.
-    Exemplo: \'!uniforme bahia\' coloca o uniforme do bahia em seu time.`,
+		"desc": `Esse comando mostra os uniformes disponíveis para colocar no seu time.\nExemplo: \'!uniforme bah\' coloca o uniforme do bahia em seu time.`,
 		"function": uniformCommand,
 	},
 	"start": {
 		"aliases": [],
 		"roles": Role.ADMIN,
-		"desc": `
-    Esse comando inicia o jogo.`,
+		"desc": `Esse comando inicia o jogo.`,
 		"function": choiceCommand,
 	},
 	"rr": {
 		"aliases": [],
 		"roles": Role.ADMIN,
-		"desc": `
-	Admin command.
-    Esse comando reinicia o jogo.`,
+		"desc": `Esse comando reinicia o jogo.`,
 		"function": restartCommand,
 	}
 }
@@ -1464,8 +1456,8 @@ var announcementColor = 0xFFEFD6;
 var redColor = 0xFF4C4C;
 var blueColor = 0x62CBFF;
 var statsColor = 0xBEBEBE;
-var teamnamered = 'Red';
-var teamnameblue = 'Blue';
+var teamnamered = 'Time Vermelho';
+var teamnameblue = 'Time Azul';
 var defaultColor = null;
 
 /* AUXILIARY */
@@ -1564,8 +1556,8 @@ function helpCommand(player, message) {
 	}
 	else if (msgArray.length >= 1) {
 		var commandName = getCommand(msgArray[0].toLowerCase());
-		if (commandName !== false && commands[commandName].desc !== false) room.sendAnnouncement(`[PV] \'${commandName}\' Comando :\n${commands[commandName].desc}`, player.id, statsColor, "bold", Notification.CHAT);
-		else room.sendAnnouncement(`[PV] The command you tried to get information on does not exist. To check all available commands, type \'!help\'`, player.id, statsColor, "bold", Notification.CHAT);
+		if (commandName !== false && commands[commandName].desc !== false) room.sendAnnouncement(`[PV] Comando \'${commandName}\' :\n${commands[commandName].desc}`, player.id, statsColor, "bold", Notification.CHAT);
+		else room.sendAnnouncement(`[PV] Esse comando não existe. Para olhar a lista de comandos digite \'!ajuda\'`, player.id, statsColor, "bold", Notification.CHAT);
 	}
 }
 
@@ -1709,15 +1701,15 @@ function endGame(winner) { // no stopGame function in it
 	Bposs = 1 - Rposs;
 	if (winner === Team.RED) {
 		room.sendAnnouncement(`${teamnamered} Venceu ! ${scores.red} - ${scores.blue} !`, null, redColor, "bold", Notification.CHAT);
-		room.sendAnnouncement(`⭐ Possession : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
+		room.sendAnnouncement(`⭐ Posse de bola : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
 	}
 	else if (winner === Team.BLUE) {
 		room.sendAnnouncement(`${teamnameblue} Venceu ! ${scores.blue} - ${scores.red} !`, null, blueColor, "bold", Notification.CHAT);
-		room.sendAnnouncement(`⭐ Possession : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
+		room.sendAnnouncement(`⭐ Posse de bola : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
 	}
 	else {
 		room.sendAnnouncement("💤 Empate !", null, announcementColor, "bold", Notification.CHAT);
-		room.sendAnnouncement(`⭐ Possession : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
+		room.sendAnnouncement(`⭐ Posse de bola : ${teamnamered} `  + (Rposs*100).toPrecision(3).toString() + `% : ` + (Bposs*100).toPrecision(3).toString() + `% ${teamnameblue}`, null, announcementColor, "bold", Notification.CHAT);
 	}
 }
 
