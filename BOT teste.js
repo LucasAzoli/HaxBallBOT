@@ -1543,13 +1543,13 @@ function leaveCommand(player, message) {
 function helpCommand(player, message) {
 	msgArray = message.split(/ +/).slice(1);
 	if (msgArray.length === 0) {
-		var commandString = "[PV] Commands :";
+		var commandString = "[PV] Comandos :";
 		for (const [key, value] of Object.entries(commands)) {
 			if (value.desc && value.roles === Role.PLAYER) commandString += ` !${key},`;
 		}
 		commandString = commandString.substring(0, commandString.length - 1) + ".";
 		if (player.admin) {
-			commandString += `\n        Admin commands :`;
+			commandString += `\n       Comandos de Administradores :`;
 			for (const [key, value] of Object.entries(commands)) {
 				if (value.desc && value.roles === Role.ADMIN) commandString += ` !${key},`;
 			}
@@ -1559,7 +1559,7 @@ function helpCommand(player, message) {
 		commandString = commandString.substring(0, commandString.length - 1) + ".";
 		if (commandString.slice(commandString.length - 1) === ":") commandString += ` None,`;
 		commandString = commandString.substring(0, commandString.length - 1) + ".";
-		commandString += "\n\nTo get information on a specific command, type '\'!help <command name>\'.";
+		commandString += "\n\nPara obter informações sobre um comando em específico, digite '\'!ajuda <nome do comando>\'.";
 		room.sendAnnouncement(commandString, player.id, statsColor, "bold", Notification.CHAT);
 	}
 	else if (msgArray.length >= 1) {
@@ -1858,10 +1858,10 @@ room.onTeamGoal = function (team) {
 	if (lastPlayersTouched[0] !== null) {
 		if (lastPlayersTouched[0].team === team) {
 			if (lastPlayersTouched[1] !== null && lastPlayersTouched[1].team === team) {
-				room.sendAnnouncement(`⚽ ${getTime(scores)} GOOOOOOOOOOL de ${lastPlayersTouched[0].name} ! É do ${(team === Team.RED ? teamnamered : teamnameblue)}, Com assistência de ${lastPlayersTouched[1].name}. Velocidade do Chute : ${ballSpeed.toFixed(2)}km/h.`, null, (team === Team.RED ? redColor : blueColor),"bold", Notification.CHAT);
+				room.sendAnnouncement(`⚽ ${getTime(scores)} TOCA A MÚSICA !! É GOOOOOOOOOOL de ${lastPlayersTouched[0].name} ! É do ${(team === Team.RED ? teamnamered : teamnameblue)}, Com assistência de ${lastPlayersTouched[1].name}. Velocidade do Chute : ${ballSpeed.toFixed(2)}km/h.`, null, (team === Team.RED ? redColor : blueColor),"bold", Notification.CHAT);
 			}
 			else {
-				room.sendAnnouncement(`⚽ ${getTime(scores)} GOOOOOOOOOOL de ${lastPlayersTouched[0].name} ! É do ${(team === Team.RED ? teamnamered : teamnameblue)}, Velocidade do Chute : ${ballSpeed.toFixed(2)}km/h.`, null, (team === Team.RED ? redColor : blueColor), "bold", Notification.CHAT);
+				room.sendAnnouncement(`⚽ ${getTime(scores)} TOCA A MÚSICA !!  É GOOOOOOOOOOL de ${lastPlayersTouched[0].name} ! É do ${(team === Team.RED ? teamnamered : teamnameblue)}, Velocidade do Chute : ${ballSpeed.toFixed(2)}km/h.`, null, (team === Team.RED ? redColor : blueColor), "bold", Notification.CHAT);
 			}
 		}
 		else {
