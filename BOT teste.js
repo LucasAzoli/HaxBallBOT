@@ -1545,27 +1545,13 @@ room.onTeamGoal = function (team) {
 			if (lastPlayersTouched[1] !== null && lastPlayersTouched[1].team === team) {
 				
 				room.sendAnnouncement(`⚽ ${getTime(scores)} TOCA A MÚSICA !! É GOOOOOOOOOOL de ${lastPlayersTouched[0].name} ! É do ${(team === Team.RED ? teamnamered : teamnameblue)}, Com assistência de ${lastPlayersTouched[1].name}. Velocidade do Chute : ${ballSpeed.toFixed(2)}km/h.`, null, (team === Team.RED ? redColor : blueColor),"bold", Notification.CHAT);
-
-				room.setPlayerAvatar(lastPlayersTouched[1].id, `👟`);
-				setTimeout(function() {
-					room.setPlayerAvatar(lastPlayersTouched[1].id, null); 
-				}, 3000);
 			}
 			else {
 				room.sendAnnouncement(`⚽ ${getTime(scores)} TOCA A MÚSICA !!  É GOOOOOOOOOOL de ${lastPlayersTouched[0].name} ! É do ${(team === Team.RED ? teamnamered : teamnameblue)}, Velocidade do Chute : ${ballSpeed.toFixed(2)}km/h.`, null, (team === Team.RED ? redColor : blueColor), "bold", Notification.CHAT);
 			}
-			room.setPlayerAvatar(lastPlayersTouched[0].id, `⚽`);
-			setTimeout(function() {
-				room.setPlayerAvatar(lastPlayersTouched[1].id, null); 
-			}, 3000);
 		}
 		else {
 			room.sendAnnouncement(`😂 ${getTime(scores)} GOOOOL Contra de ${lastPlayersTouched[0].name} ! É do ${(team === Team.RED ? teamnamered : teamnameblue)}, Velocidade do Chute : ${ballSpeed.toFixed(2)}km/h.`, null, (team === Team.RED ? redColor : blueColor), "bold", Notification.CHAT);
-
-			room.setPlayerAvatar(lastPlayersTouched[0].id, `🤡`);
-			setTimeout(function() {
-				room.setPlayerAvatar(lastPlayersTouched[1].id, null); 
-			}, 3000);
 		}
 	}
 	if (scores.scoreLimit !== 0 && (scores.red === scores.scoreLimit || scores.blue === scores.scoreLimit || goldenGoal === true)) {
