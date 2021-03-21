@@ -1433,6 +1433,8 @@ room.onTeamVictory = function () {
 		room.sendAnnouncement(docketFormat(goalsHome[i], goalsGuest[i]), null, announcementColor, "bold", 0);
 	}
 
+	/*
+
 	if (scores.red > scores.blue) {
 		setTimeout(function () {
 			for (var i = 0; i < playersTeamGuest.length; i++) {
@@ -1476,6 +1478,8 @@ room.onTeamVictory = function () {
 
 		setTimeout(function () { room.startGame(); }, 9000);
 	}
+
+	*/
 
 	setTimeout(function () { 
 		lastPlayerKick = { id: 0, team: 0 };

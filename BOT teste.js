@@ -1282,6 +1282,13 @@ function updateTeams() {
 	teamS = players.filter(p => p.team === Team.SPECTATORS);
 }
 
+function updateAdmins() {
+	var players = room.getPlayerList();
+	if (players.length == 0) return;
+	if (players.find((player) => player.admin) != null) return;
+	room.setPlayerAdmin(players[0].id, true);
+}
+
 function updateAdmins(excludedPlayerID = 0) {
 	if (players.length !== 0 && players.filter((p) => p.admin).length < maxAdmins) {
 		let playerArray = players.filter((p) => p.id !== excludedPlayerID && p.admin === false);
