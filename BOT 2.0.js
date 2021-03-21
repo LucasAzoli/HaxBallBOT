@@ -991,7 +991,7 @@ var uniforms = {
 		"type": Uniform.CLUBLA,
 		"emoji": '🔵⚪🔴',
 		"angle": 0,
-		"textcolor": 0xFED63F,
+		"textcolor": 0xFFDD00,
 		"color1": 0xD10125,
 		"color2": 0xE3DFE4,
 		"color3": 0x1C3E94,
