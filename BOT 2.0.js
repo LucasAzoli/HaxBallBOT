@@ -1433,8 +1433,6 @@ room.onTeamVictory = function () {
 		room.sendAnnouncement(docketFormat(goalsHome[i], goalsGuest[i]), null, announcementColor, "bold", 0);
 	}
 
-	/*
-
 	if (scores.red > scores.blue) {
 		setTimeout(function () {
 			for (var i = 0; i < playersTeamGuest.length; i++) {
@@ -1478,8 +1476,6 @@ room.onTeamVictory = function () {
 
 		setTimeout(function () { room.startGame(); }, 9000);
 	}
-
-	*/
 
 	setTimeout(function () { 
 		lastPlayerKick = { id: 0, team: 0 };
@@ -1531,6 +1527,8 @@ function docketFormat(string1, string2) { // Formata a súmula
 	} else if (string2 !== undefined && string1 !== undefined) {
 		var space = 16 - (string1.length + 10 + string2.length)
 		return ' '.repeat(12) + centerText(string1 + ' '.repeat(10) + string2)
+	} else if (string1 === undefined && string2 === undefined) {
+		return ''
 	}
 }
 
