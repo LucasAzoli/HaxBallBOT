@@ -47,23 +47,23 @@
   <tr style="padding: 0">
     <td valign="top">
       <h3 align="center">Brasil</h3>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174613120-ce4b05db-35d9-463b-b29c-d0a13244e8f3.png"/>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174612979-a835f673-b1f5-46a3-bfa9-3bf0f00481e6.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174613120-ce4b05db-35d9-463b-b29c-d0a13244e8f3.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174612979-a835f673-b1f5-46a3-bfa9-3bf0f00481e6.png"/>
     </td>
     <td valign="top">
       <h3 align="center">França</h3>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174613399-48302694-5af0-4f38-a27e-0abeb8c87c2d.png"/>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174613530-d45f5bbb-9444-4c34-a9fd-4f6295597b4c.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174613399-48302694-5af0-4f38-a27e-0abeb8c87c2d.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174613530-d45f5bbb-9444-4c34-a9fd-4f6295597b4c.png"/>
     </td>
    <td valign="top">
       <h3 align="center">Itália</h3>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174613779-6bb68544-703f-4d12-94d4-187c65ec6ec6.png"/>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174613859-15750f6b-3e35-4be9-8a70-45b981b4a6dd.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174613779-6bb68544-703f-4d12-94d4-187c65ec6ec6.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174613859-15750f6b-3e35-4be9-8a70-45b981b4a6dd.png"/>
     </td>
    <td valign="top">
       <h3 align="center">Uruguai</h3>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174614648-f11b5892-b889-4598-b0e9-2ce19cf5ef67.png"/>
-      <img height="100px" src="https://user-images.githubusercontent.com/77306471/174614785-968543b5-d7e0-4e0e-aecb-088262e304ab.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174614648-f11b5892-b889-4598-b0e9-2ce19cf5ef67.png"/>
+      <img height="50%" src="https://user-images.githubusercontent.com/77306471/174614785-968543b5-d7e0-4e0e-aecb-088262e304ab.png"/>
     </td>
   </tr>
 </table>
